@@ -8,14 +8,15 @@ assessmentButton.onclick = () => {
     if (userName.length === 0) {
         return;
     }
-    console.log(userName);
+    
     // TODO 診断結果表示エリアの作成
+    while (resultDivided.firstChild) { // 子どもの要素があるかぎり削除
+        resultDivided.removeChild(resultDivided.firstChild);
+    }
     const header = document.createElement('h3');
     header.innerText = '診断結果';
     resultDivided.appendChild(header);
-    while (resultDivided.firstChild) { // 子どもの要素があるかぎり削除
-        resultDivided.removeChild(resultDivided.firstChild);
-      }
+
     const paragraph = document.createElement('p');
     const result = assessment(userName);
     paragraph.innerText = result;
@@ -23,7 +24,7 @@ assessmentButton.onclick = () => {
     // TODO ツイートエリアの作成
     while (tweetDivided.firstChild) { // 子どもの要素があるかぎり削除
         tweetDivided.removeChild(tweetDivided.firstChild);
-      }
+    }
     const anchor = document.createElement('a');
     const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw';
 
